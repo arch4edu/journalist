@@ -1,0 +1,3 @@
+[submodule "pkgstats"]
+	path = pkgstats
+	url = https://github.com/petronny/pkgstats
