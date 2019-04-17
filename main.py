@@ -7,12 +7,12 @@ from copy import deepcopy as copy
 import sqlite3
 from arch4edu import telegram, weibo, twitter
 from nicelogger import enable_pretty_logging
+import config
 
 supported_archs = ['x86_64', 'armv6h', 'armv7h', 'aarch64']
-db = sqlite3.connect('file:%s?mode=ro' % os.path.expanduser('~/report/pkginfo.db'), uri=True)
-today = datetime.datetime.now()#.date()
+db = sqlite3.connect('file:%s?mode=ro' % config.pkginfo_db, uri=True)
+today = datetime.datetime.now().date()
 recent_threshold = today - datetime.timedelta(days=7)
-today -= datetime.timedelta(hours=24)
 logger = logging.getLogger()
 enable_pretty_logging('DEBUG')
 
