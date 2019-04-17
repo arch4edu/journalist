@@ -1,0 +1,10 @@
+#!/bin/python3
+pkginfo_db = '/path/to/pkginfo.db'
+telegram_token = 'telegram_token'
+weibo_appid = 'weibo_appid'
+weibo_app_secret = 'weibo_app_secret'
+weibo_redirect_url = 'https://www.example.com'
+weibo_username = 'weibo_username'
+weibo_password = 'weibo_password'
+twitter_ifttt_email = 'email@example.com'
+twitter_ifttt_password = 'password'
