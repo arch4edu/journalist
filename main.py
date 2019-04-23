@@ -42,9 +42,9 @@ def merge_events(events):
             result.append((i[0], supported_archs[0], i[1], i[2]))
             result.append((i[0], 'armv{6,7}h', i[1], i[2]))
         else:
-            for i in range(len(archs)):
-                if archs[i]:
-                    result.append((i[0], supported_archs[i], i[1], i[2]))
+            for j in range(len(archs)):
+                if archs[j]:
+                    result.append((i[0], supported_archs[j], i[1], i[2]))
     by_verions = set([i[1:] for i in result])
     result2 = []
     for i in by_verions:
@@ -157,12 +157,15 @@ if __name__ == '__main__':
 
     report = telegram.to_telegram(events)
     print(report)
-    #telegram.send(report)
+    if len(sys.argv) > 1 and sys.argv[1] == 'post':
+        telegram.send(report)
 
     report = limited_report(weibo.to_weibo, events, 121)
     print(len(report), report)
-    #weibo.send(report)
+    if len(sys.argv) > 1 and sys.argv[1] == 'post':
+        weibo.send(report)
 
     report = limited_report(twitter.to_twitter, events, 280)
     print(len(report), report)
-    #twitter.send(report)
+    if len(sys.argv) > 1 and sys.argv[1] == 'post':
+        twitter.send(report)
